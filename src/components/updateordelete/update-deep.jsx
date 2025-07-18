@@ -29,8 +29,9 @@ function UpdateDeep({ materials, setMaterials }) {
     <div>
       <h2>Edit Material</h2>
       <p><strong>ID:</strong> {form.id}</p>
-      <p><strong>Name:</strong>
-          {form.name}</p>
+      <p><strong>Name:</strong> <input name="name"
+          value={form.name}
+          onChange={handleChange} type="text" placeholder= {form.name}/></p>
       <p><strong>Availability:</strong> <input type="text"
           name="availability"
           value={form.availability}
