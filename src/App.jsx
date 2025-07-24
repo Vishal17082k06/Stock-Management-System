@@ -23,6 +23,7 @@ import DataEntryNavbar from './DataEntryNav';
 //temp data
 //import mockMaterials from './mockMaterials';
 import StockPredictionChart from './mockml';
+import StockDeep from './stock-deep';
 
 function App() {
   // REMOVE mockMaterials if you use backend fully
@@ -42,6 +43,7 @@ const [materials, setMaterials] = useState([]);
         <Route path="/stock" element={<Stock />} />
         <Route path="/dataentry" element={<DataEntryMenu />} />
         <Route path="/ml" element={<StockPredictionChart/>}/>
+        <Route path="/stock-deep" element={<StockDeep/>}/>
         <Route path="/alerthistory"
           element={<AlertHistory materials={materials} setMaterials={setMaterials} />}
         />

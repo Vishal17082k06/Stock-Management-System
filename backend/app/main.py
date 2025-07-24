@@ -8,6 +8,7 @@ from app import ml_model
 from fastapi.middleware.cors import CORSMiddleware
 from app import alertservice#added
 
+
 app = FastAPI()
 from pydantic import BaseModel
 
