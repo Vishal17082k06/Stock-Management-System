@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./stock.css";
 
 function Stock() {
   const navigate = useNavigate();
@@ -32,22 +33,23 @@ function Stock() {
   };
 
   return (
-    <div>
-      <div>
-        <p>STOCKS</p>
+    <div className="stock-page">
+      <div className="stock-container">
+        <p className="stock-heading">STOCKS</p>
 
         <input
+          className="search-input"
           placeholder="Search by Id"
           value={searchId}
           onChange={(e) => setSearchId(e.target.value)}
         />
 
         {filteredMaterials.length === 0 ? (
-          <p>No matching materials</p>
+          <p className="no-materials-message">No matching materials</p>
         ) : (
           filteredMaterials.map((item, index) => (
-            <div key={index}>
-              <div
+            <div className="material-item" key={index}>
+              <div className="material-card"
                 onClick={() => handleSelect(item)}
                 style={{ cursor: "pointer" }}
               >

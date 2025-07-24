@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import AvailabilityTrendChart from "./AvailabilityTrendChart";
+import "./stock-deep.css";
 
 function StockDeep() {
   const location = useLocation();
@@ -35,14 +36,14 @@ function StockDeep() {
   }, [stockId]);
 
   return (
-    <div>
-      <h2>Stock Availability Trend</h2>
+    <div className="stock-deep-page">
+      <h2 className="stock-deep-heading">Stock Availability Trend</h2>
       {loading ? (
-        <p>Loading chart...</p>
+        <p className="loading-message">Loading chart...</p>
       ) : errorMsg ? (
-        <p style={{ color: "red" }}>{errorMsg}</p>
+        <p className="error-message">{errorMsg}</p>
       ) : (
-        <AvailabilityTrendChart data={trendData} />
+        <AvailabilityTrendChart className="availability-trend-chart" data={trendData} />
       )}
     </div>
   );
