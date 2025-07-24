@@ -6,7 +6,7 @@ import './Dashboard.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const THRESHOLD_MARGIN = 30;
+const THRESHOLD_MARGIN = 1000;
 
 export default function Dashboard() {
   const [materials, setMaterials] = useState([]);

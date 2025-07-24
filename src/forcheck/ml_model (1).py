@@ -44,16 +44,6 @@ def get_combined_actual_and_forecasted_trend(usage_history, current_quantity, th
                 depletion_date = next_date
                 break 
     else:
-        average_usage = 0
-    # start
-        for i in range(forecast_days):
-            next_date = datetime.now().date() + timedelta(days=i + 1)
-            trend_data.append({
-                "date": str(next_date),
-                "available_stock": current_quantity,
-                "lower_bound": int(round(current_quantity * (1 - confidence_margin))),
-                "upper_bound": int(round(current_quantity * (1 + confidence_margin))),
-                "type": "forecast"
-            })  #end
+        average_usage = 0  
 
     return trend_data, depletion_date, average_usage

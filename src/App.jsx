@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Dashboard from './Dashboard';
 import Stock from './Stock';
+import StockDeep from "./stock-deep"
 import AlertHistory from './AlertHistory';
 
 // Data Entry hub and sub-pages
@@ -23,7 +24,6 @@ import DataEntryNavbar from './DataEntryNav';
 //temp data
 //import mockMaterials from './mockMaterials';
 import StockPredictionChart from './mockml';
-import StockDeep from './stock-deep';
 
 function App() {
   // REMOVE mockMaterials if you use backend fully
@@ -41,9 +41,8 @@ const [materials, setMaterials] = useState([]);
         {/* === Main Pages === */}
         <Route path="/" element={<Dashboard />} />
         <Route path="/stock" element={<Stock />} />
+        <Route path="/stock-deep" element={<StockDeep />} />
         <Route path="/dataentry" element={<DataEntryMenu />} />
-
-        <Route path="/stock-deep" element={<StockDeep/>}/>
         <Route path="/ml" element={<Dashboard />} />
         <Route path="/alerthistory"
           element={<AlertHistory materials={materials} setMaterials={setMaterials} />}

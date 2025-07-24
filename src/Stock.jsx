@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Stock(){
+function Stock() {
   const navigate = useNavigate();
   const [materials, setMaterials] = useState([]);
   const [searchId, setSearchId] = useState("");
@@ -28,8 +28,7 @@ function Stock(){
   );
 
   const handleSelect = (material) => {
-    navigate("/stock-deep", { state: { stock_id: material.id } });
-
+    navigate("/stock-deep", { state: { stockId: material.id } });
   };
 
   return (
