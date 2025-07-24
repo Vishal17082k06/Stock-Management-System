@@ -8,6 +8,9 @@ from app import ml_model
 from fastapi.middleware.cors import CORSMiddleware
 from app import alertservice
 from datetime import date
+
+
+
 app = FastAPI()
 from pydantic import BaseModel
 
@@ -104,6 +107,7 @@ def get_all_alerts(db: Session = Depends(get_db)):
 def update_contact_config_endpoint(data: ContactConfigUpdate, db: Session = Depends(get_db)):
     config = crud.set_contact_config(db, data.email, data.sms_number)
     return {"message": "Contact configuration updated", "config": config}
+
 @app.get("/high_risk_stocks")
 def get_high_risk_stocks(db: Session = Depends(get_db)):
     stocks = crud.get_all_stock(db)

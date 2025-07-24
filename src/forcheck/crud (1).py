@@ -37,7 +37,6 @@ def delete_stock(db: Session, stock_id: int):
     stock_item = get_stock_by_id(db, stock_id)
     if not stock_item:
         return None
-    # First, delete the usage history entries
     db.query(StockUsageHistory).filter(StockUsageHistory.stock_id == stock_id).delete()
     db.delete(stock_item)
     db.commit()
@@ -129,6 +128,7 @@ def check_and_trigger_alert(db: Session, stock: models.Stock):
         alertservice.send_email(contact.email, f"Stock Alert: {stock.casting_type}", message)
         alertservice.send_sms(contact.sms_number, message)
         logging.info(f"[ALERT SENT] Stock: {stock.casting_type}")
+
 def get_current_quantity_from_db(db: Session, stock_id: int) -> int:
     stock = db.query(Stock).filter(Stock.id == stock_id).first()
     return stock.quantity if stock else 0
