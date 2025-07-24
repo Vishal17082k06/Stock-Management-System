@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Dashboard from './Dashboard';
 import Stock from './Stock';
+import StockDeep from "./stock-deep"
 import AlertHistory from './AlertHistory';
 
 // Data Entry hub and sub-pages
@@ -40,6 +41,7 @@ const [materials, setMaterials] = useState([]);
         {/* === Main Pages === */}
         <Route path="/" element={<Dashboard />} />
         <Route path="/stock" element={<Stock />} />
+        <Route path="/stock-deep" element={<StockDeep />} />
         <Route path="/dataentry" element={<DataEntryMenu />} />
         <Route path="/ml" element={<Dashboard />} />
         <Route path="/alerthistory"
